@@ -142,6 +142,8 @@
             "<ul><li><a class='frist' href='javascript:void(0)' onclick='goPage($(this))'>上一页</a></li>" +
             pageContent +
             "<li><a class='last' href='javascript:void(0)' onclick='goPage($(this))'>下一页</a></li>" +
+            "<li><input id='num' type='text'/></li>" +
+            "<li><a class='last' href='javascript:void(0)' onclick='goPage($(\"#num\"))'>跳转</a></li>" +
             "</ul>" +
             "                    </div>\n" +
             "                </div>";
@@ -150,7 +152,9 @@
 
 
     function goPage(obj) {
-        var curIndex = obj.text();
+        //跳转页码
+        var curIndex = parseInt(obj.text() || obj.val());
+
         var tabpanel = obj.parents("div[class^='tab-pane fade']");
         var idName = tabpanel.attr("id");
 
@@ -162,13 +166,17 @@
                 break;
             }
         }
+        //总页数
+        let sumPage = issuesCount%6==0?parseInt(issuesCount / 6):parseInt(issuesCount / 6)+1;
+        
+        if(!Number.isFinite(curIndex) || (!!curIndex && (curIndex<1 || curIndex>sumPage))) return;
+
         //获取页码
         let pageIndex = pageIndexMap[idName];
 
         if ("上一页" == curIndex) {
             pageIndex = parseInt((pageIndex == 1) ? 1 : (pageIndex - 1));
         } else if ("下一页" == curIndex) {
-            let sumPage = issuesCount%6==0?parseInt(issuesCount / 6):parseInt(issuesCount / 6)+1;
             pageIndex = parseInt(pageIndex == sumPage ? sumPage : (pageIndex + 1));
         } else {
             pageIndex = parseInt(curIndex);
@@ -183,7 +191,7 @@
             var aTxt = aObj.text();
             aObj.css("background", "");
             aObj.css("color", "");
-            if ("上一页" == aTxt || "下一页" == aTxt) {
+            if ("上一页" == aTxt || "下一页" == aTxt || "跳转" == aTxt || !aTxt) {
                 $(this).show();
             } else if (parseInt(aTxt) >= (pageIndex >= 2 ? pageIndex - 2 : pageIndex) && parseInt(aTxt) < (pageIndex >= 2 ? pageIndex + 3 : pageIndex + 5)) {
                 if (parseInt(aTxt) == pageIndex) {

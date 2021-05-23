@@ -65,3 +65,13 @@ html, body {
         button:hover {
             cursor: url(https://cdn.jsdelivr.net/gh/hlning/hexo_resources@master/cur/link.cur), auto !important
         }
+        
+        .blog-pagenat-wthree ul li input {
+            margin: 5px;
+            background: #fff;
+            text-transform: uppercase;
+            color: #222;
+            width: 80PX;
+            border: 1px solid #ddd;
+            padding: 5px 1.1em;
+        }
