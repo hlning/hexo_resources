@@ -132,7 +132,7 @@
 
         //每页显示6条，分多少页
         let sumPage = parseInt(count / 6);
-        for (let i = 1; i <= (sumPage == 0 ? sumPage + 1 : sumPage); i++) {
+        for (let i = 1; i <= (sumPage%6 == 0 ? sumPage : sumPage + 1 ); i++) {
             pageContent += "<li " + (i > 5 ? "style='display:none'" : "") + "><a href='javascript:void(0)' onclick='goPage($(this))'>" + i + "</a></li>";
         }
 
@@ -182,7 +182,7 @@
             aObj.css("color", "");
             if ("上一页" == aTxt || "下一页" == aTxt) {
                 $(this).show();
-            } else if (parseInt(aTxt) >= (pageIndex > 2 ? pageIndex - 2 : pageIndex) && parseInt(aTxt) < (pageIndex > 2 ? pageIndex + 3 : pageIndex + 5)) {
+            } else if (parseInt(aTxt) >= (pageIndex >= 2 ? pageIndex - 2 : pageIndex) && parseInt(aTxt) < (pageIndex >= 2 ? pageIndex + 3 : pageIndex + 5)) {
                 if (parseInt(aTxt) == pageIndex) {
                     aObj.css("background", "#29292A");
                     aObj.css("color", "white");
