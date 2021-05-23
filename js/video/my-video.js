@@ -168,10 +168,13 @@
         if ("上一页" == curIndex) {
             pageIndex = parseInt((pageIndex == 1) ? 1 : (pageIndex - 1));
         } else if ("下一页" == curIndex) {
-            pageIndex = parseInt((pageIndex == parseInt(issuesCount / 6) + 1) ? parseInt(issuesCount / 6) + 1 : (pageIndex + 1));
+            let sumPage = issuesCount%6==0?parseInt(issuesCount / 6):parseInt(issuesCount / 6)+1;
+            pageIndex = parseInt(pageIndex == sumPage ? sumPage : (pageIndex + 1));
         } else {
             pageIndex = parseInt(curIndex);
         }
+        //更新页码
+        pageIndexMap[idName] = pageIndex;
 
         //翻页按钮显示
         var sibObjs = obj.parents("ul").find("li");
