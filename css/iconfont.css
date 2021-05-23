@@ -1,0 +1,36 @@
+@font-face {
+  font-family: "iconfont"; /* Project id 2530202 */
+  src: url('iconfont.woff2?t=1620306549418') format('woff2'),
+       url('iconfont.woff?t=1620306549418') format('woff'),
+       url('iconfont.ttf?t=1620306549418') format('truetype');
+}
+
+.iconfont {
+  font-family: "iconfont" !important;
+  font-size: 25px;
+  font-style: normal;
+  display: inline-block;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-bilibili-fill:before {
+  content: "\e69c";
+}
+ 
+.icon-youxiang:before {
+  content: "\e762";
+}
+
+.icon-QQ:before {
+  content: "\e698";
+}
+
+.icon-weixin:before {
+  content: "\e665";
+}
+
+.icon-youxiang:hover,.icon-bilibili-fill:hover {
+    color:#49b1f5;
+		transform: rotate(90deg);
+}

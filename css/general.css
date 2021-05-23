@@ -1,0 +1,125 @@
+/*鼠标样式*/
+body, html {
+    cursor: url(/cur/arrow.cur), auto !important
+}
+
+a, img {
+    cursor: url(/cur/link.cur), auto !important
+}
+
+a:hover {
+    cursor: url(/cur/link.cur), auto !important
+}
+
+button:hover {
+    cursor: url(/cur/link.cur), auto !important
+}
+
+i:hover {
+    cursor: url(/cur/link.cur), auto !important
+}
+
+#footer-wrap a:hover {
+    cursor: url(/cur/link.cur), auto !important
+}
+
+#pagination .page-number:hover {
+    cursor: url(/cur/link.cur), auto !important
+}
+
+#nav .site-page:hover {
+    cursor: url(/cur/link.cur), auto !important
+}
+
+time:hover {
+    cursor: url(/cur/link.cur),
+    auto !important;
+}
+
+svg:hover {
+    cursor: url(/cur/link.cur),
+    auto !important;
+}
+
+input:hover {
+    cursor: url(/cur/link.cur),
+    auto !important;
+}
+
+textarea:hover {
+    cursor: url(/cur/link.cur),
+    auto !important;
+}
+
+.aplayer-list{
+  cursor: url(/cur/link.cur),
+	auto !important;
+}
+
+.aplayer *{
+    cursor: url(/cur/link.cur),
+    auto !important;
+}
+/*鼠标样式END*/
+
+#toggle-sidebar {
+  bottom: 80px;
+  left: 100px;
+}
+/*背景图*/
+#web_bg {
+  background-image: linear-gradient(to top, #fff1eb 0%, #ace0f9 100%);
+}
+
+/*标签*/
+#article-container h2:before {
+    margin-left: -1.1rem;
+    font-size: .9rem;
+}
+
+#article-container h1:before, #article-container h2:before, #article-container h3:before, #article-container h4:before, #article-container h5:before, #article-container h6:before {
+    position: absolute;
+    top: calc(50% - .35rem);
+    right: calc(98% - .35rem);
+    color: #fc625d;
+    content: '\f135';
+    line-height: 1;
+    -webkit-transition: all .2s ease-out;
+    -moz-transition: all .2s ease-out;
+    -o-transition: all .2s ease-out;
+    -ms-transition: all .2s ease-out;
+    transition: all .2s ease-out;
+}
+
+#article-container h1:before, #article-container h2:before, #article-container h3:before, #article-container h4:before, #article-container h5:before, #article-container h6:before, #post .post-copyright:before, #post .post-outdate-notice:before, .fontawesomeIcon, .note:not(.no-icon)::before, hr:before {
+    display: inline-block;
+    font-weight: 600;
+    font-style: normal;
+    font-variant: normal;
+    font-family: 'Font Awesome 5 Free';
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+}
+
+#article-container h1, #article-container h2, #article-container h3, #article-container h4, #article-container h5, #article-container h6{
+    padding-left: 1.3rem;
+}
+
+#article-container h1:hover::before, #article-container h2:hover::before, #article-container h3:hover::before, #article-container h4:hover::before, #article-container h5:hover::before {
+    color: #23ade5;
+}
+#article-container h1:hover, #article-container h2:hover, #article-container h3:hover, #article-container h4:hover, #article-container h5:hover, #article-container h6:hover{
+    right: calc(0% - .35rem);
+}
+
+#veditor{
+    background-image: url(/img/talk_background.webp);
+    height: 240px;
+    z-index: 0;
+    background-repeat: no-repeat;
+    background-position: right;
+}
+
+i{
+    animation: float 3s linear infinite;
+}
