@@ -153,7 +153,7 @@
 
     function goPage(obj) {
         //跳转页码
-        var curIndex = parseInt(obj.text() || obj.val());
+        var curIndex = obj.text() || obj.val();
 
         var tabpanel = obj.parents("div[class^='tab-pane fade']");
         var idName = tabpanel.attr("id");
@@ -166,13 +166,12 @@
                 break;
             }
         }
-        //总页数
-        let sumPage = issuesCount%6==0?parseInt(issuesCount / 6):parseInt(issuesCount / 6)+1;
-        
-        if(!Number.isFinite(curIndex) || (!!curIndex && (curIndex<1 || curIndex>sumPage))) return;
 
         //获取页码
         let pageIndex = pageIndexMap[idName];
+        
+        //总页数
+        let sumPage = issuesCount%6==0?parseInt(issuesCount / 6):parseInt(issuesCount / 6)+1;
 
         if ("上一页" == curIndex) {
             pageIndex = parseInt((pageIndex == 1) ? 1 : (pageIndex - 1));
@@ -181,12 +180,14 @@
         } else {
             pageIndex = parseInt(curIndex);
         }
-        //更新页码
+        
+        if(!Number.isFinite(pageIndex) || (!!pageIndex && (pageIndex<1 || pageIndex>sumPage))) return;
         pageIndexMap[idName] = pageIndex;
 
         //翻页按钮显示
         var sibObjs = obj.parents("ul").find("li");
         sibObjs.each(function (index) {
+            //a标签
             var aObj = $(this).find("a");
             var aTxt = aObj.text();
             aObj.css("background", "");
